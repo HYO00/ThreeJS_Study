@@ -67,8 +67,30 @@ class App {
 		//BoxGeometry 정육면체 (가로, 세로, 깊이)
 		//면이 회색으로 채워지고 외곽선이 노란색으로 표시되는 육면체로 변경
 		//BoxGeometry는 가로, 세로, 깊이에 대한 크기와 함께 가로, 세로, 깊이 각각에 대한 분할(Segments)수로 정의, 지정하지 않으면 기본값이 1
-		const geometry = new THREE.BoxGeometry(1, 1, 1); //가로  세로  깊이  크기가  모두  1
-		const fillMaterial = new THREE.MeshPhongMaterial({ color: 0x515151 }); //회색색상 재재질
+		//const geometry = new THREE.BoxGeometry(1, 1, 1); //가로  세로  깊이  크기가  모두  1
+		//CircleGeometry 원판모양의 geometry 생성자에 4개의 인자를 받는다. 1. 원판 크기 반지름 기본값 1 2. 원판을 구성하는 분할개수 기본 값 8 3. 시작각도 4. 연장각도
+		//const geometry = new THREE.CircleGeometry(0.9, 16, 0, Math.PI / 2);
+		//원뿔모양의 geometry 생성자에 7개의 인자를 받는다.
+		//1. 원의 반지름 크기 기본값 1 2. 원뿔의 높이 기본값 1 3.원뿔의 둘레방향 기본값 8 4. 원뿔의 높이 방향에 대한 분할 개수 기본값 1 5. 밑면 오픈 여부 true or false 6,7. 원뿔의 시작 각과 연장 각 기본값 0과 2pi 즉 360도
+		//const geometry = new THREE.ConeGeometry(0.3, 2, 16, 9, true);
+		//원통모양이 geometry 생성ㅂ자에 8개 인자를 받는다.
+		//1,2. 각각 윗 면과 밑 면 해당하는 원의 반지름 크기 기본값 1 3. 원통의 높이 기본값 1 4.원통의 둘레 방향에 대한 분할 개수 기본값 8 5. 원통의 높이 방향에 대한 분할 개수 기본값 1 6. 원통의 윗면과 밑면의 오픈 여부 기본값 false 7,8. 원뿔의 시작 각과 연장 각 기본값 0과 2pi
+		//const geometry = new THREE.CylinderGeometry();
+		// 구형탱의 geometry 7개의 인자를 받는다.
+		//1. 구의 반지름 크기 기본값 1 2. 수평 방향에 대한 불할 수 기본값 32  3. 수직방향에대한 분할수 기본값 16 4,5. 수평방향에 대한 구의 시작 각과 연장 각 기본값 0과 2pi 6,7. 수직 방향에 대한 구의 시작 가과 연장 각 기본 값 0과 pi
+		//const geometry = new THREE.SphereGeometry();
+		//2차원 형태의 반지 모양 6개의 이자를 받는다.
+		//1. 내부 반지름값 기본값 0.5 2.외부 반지름 값 기본값 1 3.가장 자리 둘레 뱡향으로 분할 수 기본값 8 4.내부 방향에 대한 분할 수 기본값 1 5,6. 시작 각과 연장 각 기본값 0과 2pi
+		//const geometry = new THREE.RingGeometry();
+		//평면 모양 사각형 인자 4개 받는다.  PlaneGeometry는 지리 정보 시스템, 즉 GIS에서 3차원 지형 등을 표현하는데 유용하게 사용
+		//1. 너비에 대한 길이 기본값 1 2. 높이에 대한 길이 기본값 1 3. 너비 방향에 대한 분할 수 기본 값 1 4. 높이 방향에 대한 분할 수 기본값 1
+		//const geometry = new THREE.PlaneGeometry();
+		//3차원 반지 모양 도넛같이도 생김 4개의 인자를 ㅂ다는다.
+		//1. 토러스의 반지름 기본 값 1 2.토러스 원통의 반지름 값 기본 값 0.4 3. 토러스의 방사 방향 ? 기본값 8 4.긴 원통의 분할 수 기본값 6 5. 토러스의 연장 각의 길이 (시작각이 따로 없고 연장 각의 길이만 인자로 받는다.) 기본값 360도 2pi
+		//const geometry = new THREE.TorusGeometry();
+		//모양은 멋지지만 활용도는 떨어진다. 프렛즐 같이생김 1. 반지름 2. 원통의 반지름 크기 3,4. 분할 수 5,6. 구성하는데 사용되는 어떤 반복 수
+		const geometry = new THREE.TorusKnotGeometry(0.6, 0.1, 64, 32, 1, 2);
+		const fillMaterial = new THREE.MeshPhongMaterial({ color: 0x96ccfd }); //회색색상 재재질
 		const cube = new THREE.Mesh(geometry, fillMaterial); //mesh타입의 오브젝트 생성
 
 		const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffff00 }); //노란색 선에 대한 재질
